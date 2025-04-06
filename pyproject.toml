@@ -25,6 +25,7 @@ dependencies = [
   "requests>=2.32.3", # Re-enable if you actually want to install from PyPI
   "rich>=13.9.4",
   "typer>=0.15.2",
+  "google-genai>=0.8.0", # Added Gemini client library
 ]
 
 [project.scripts]

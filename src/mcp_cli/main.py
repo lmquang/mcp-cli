@@ -22,9 +22,10 @@ from mcp_cli.run_command import run_command
 
 # Configure logging
 logging.basicConfig(
-    level=logging.CRITICAL,
+    level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    stream=sys.stderr,
+    filename="/tmp/mcp_cli.log",  # Log to a file
+    filemode="a",  # Append to the log file
 )
 
 # Ensure terminal is reset on exit.

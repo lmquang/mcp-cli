@@ -76,7 +76,13 @@ def process_options(server, disable_filesystem, provider, model, config_file="se
         
     # Use a default model if none is provided.
     if not model:
-        model = "gpt-4o-mini" if provider.lower() == "openai" else "qwen2.5-coder"
+        provider_lower = provider.lower()
+        if provider_lower == "openai":
+            model = "gpt-4o-mini"
+        elif provider_lower == "gemini":
+            model = "gemini-1.5-flash-latest" # Default for Gemini
+        else: # Default for other providers (e.g., ollama)
+            model = "qwen2.5-coder" # Existing default for others
     
     # Set environment variables used by the MCP code.
     os.environ["LLM_PROVIDER"] = provider
